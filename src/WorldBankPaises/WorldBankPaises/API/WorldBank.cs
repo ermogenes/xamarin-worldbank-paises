@@ -1,20 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
-using System.Net.Http.Formatting;
 using WorldBankPaises.Model;
-using Newtonsoft.Json;
-using System.Xml.Serialization;
-using System.IO;
 using Newtonsoft.Json.Linq;
-using System.Json;
 using System.Globalization;
-//using System.Globalization;
-//using System.Json;
 
 namespace WorldBankPaises.API
 {
@@ -74,7 +64,6 @@ namespace WorldBankPaises.API
             catch (Exception ex)
             {
                 // segue sem fazer nada
-                var e = ex;
             }
 
             return paises;
@@ -91,36 +80,12 @@ namespace WorldBankPaises.API
                 }
                 catch (Exception ex)
                 {
-                    var erro = ex;
-                    // continua sem estourar erro
+                    // continua
                 }
                 return pais;
             }
             return null;
         }
-        public void ComplementaDetalhePaisEstatico(Pais pais)
-        {
-            if (!pais.Complementado)
-            {
-                switch (pais.Id)
-                {
-                    case "BRA":
-                        pais.GDPPerCapita = 1000;
-                        pais.ImpostosPercentual = 0.11d;
-                        break;
-                    case "ARG":
-                        pais.GDPPerCapita = 500;
-                        pais.ImpostosPercentual = 0.22d;
-                        break;
-                    default:
-                        pais.GDPPerCapita = 0;
-                        pais.ImpostosPercentual = 0d;
-                        break;
-                }
-                pais.Complementado = true;
-            }
-        }
-
 
         private async Task ComplementaImpostosPercentual(Pais pais)
         {
@@ -146,7 +111,6 @@ namespace WorldBankPaises.API
                 // segue sem fazer nada
             }
         }
-
 
         private async Task ComplementaGDPPerCapita(Pais pais)
         {
