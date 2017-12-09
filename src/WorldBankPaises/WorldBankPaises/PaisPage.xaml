@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WorldBankPaises.PaisPage"
+             Title="{Binding Nome}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Identificador" FontSize="Large"/>
+            <Label Text="{Binding Id}" FontSize="Large" />
+            <Label Text="Capital" FontSize="Large" />
+            <Label Text="{Binding Capital}" FontSize="Large" />
+            <Label Text="PIB per capita" FontSize="Large" />
+            <Label Text="{Binding GDPPerCapita, StringFormat='US$ {0:N}'}" FontSize="Large" />
+            <Label Text="Impostos" FontSize="Large" />
+            <Label Text="{Binding ImpostosPercentual, StringFormat='{0:N}% do PIB'}" FontSize="Large" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
